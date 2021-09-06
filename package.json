@@ -1,5 +1,5 @@
 {
-  "name": "learnstorybook-design-system-template",
+  "name": "@thanhtungdp/learnstorybook-design-system",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env BABEL_ENV=production babel src -d dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
@@ -37,7 +37,16 @@
       }
     ]
   },
-  "babel": {},
+  "babel": {
+    "presets": [
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -51,13 +60,22 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.15.4",
+    "@storybook/addon-a11y": "^6.3.8",
     "@storybook/addon-actions": "^6.3.7",
     "@storybook/addon-essentials": "^6.3.7",
     "@storybook/addon-links": "^6.3.7",
     "@storybook/node-logger": "^6.3.7",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.3.7",
+    "auto": "^10.31.0",
     "chromatic": "^5.9.2",
+    "cross-env": "^7.0.3",
     "prettier": "^2.3.2"
-  }
+  },
+  "main": "dist/index.js",
+  "repository": "git@github.com:thanhtungdp/learnstorybook-design-system.git",
+  "author": "Tung Phan <tung.phan@vietan-software.com>",
+  "license": "MIT",
+  "description": "Storybook design systems tutorial"
 }
